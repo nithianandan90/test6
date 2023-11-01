@@ -26,7 +26,7 @@ const userExists = async id => {
 
 const saveUser = async user => {
   const date = new Date();
-
+  console.log('lambda function triggered');
   const timestamp = date.getTime();
   const dateStr = date.toISOString();
 
