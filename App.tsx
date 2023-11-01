@@ -6,113 +6,98 @@
  */
 
 import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import {Text, View} from 'react-native';
 
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
+import 'react-native-get-random-values';
+import {StyleSheet} from 'react-native';
+import Navigation from './src/navigation';
+import {Amplify} from 'aws-amplify';
+import {withAuthenticator, AmplifyTheme} from 'aws-amplify-react-native';
+import config from './src/aws-exports';
+import colors from './src/theme/colors';
+import AuthContextProvider from './src/contexts/AuthContext';
+import Client from './src/apollo/Client';
+import {MenuProvider} from 'react-native-popup-menu';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 
-function Section({children, title}: SectionProps): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
+Amplify.configure(config);
+
+const App = () => {
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
+    <SafeAreaProvider>
+      <MenuProvider>
+        <AuthContextProvider>
+          <Client>
+            <Navigation />
+          </Client>
+        </AuthContextProvider>
+      </MenuProvider>
+    </SafeAreaProvider>
   );
-}
-
-function App(): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-}
+};
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
+  app: {
+    flex: 1,
   },
 });
 
+const signUpConfig = {
+  hideAllDefaults: true,
+  signUpFields: [
+    {
+      label: 'Full name',
+      key: 'name',
+      required: true,
+      displayOrder: 1,
+      type: 'string',
+      placeholder: 'Full name',
+    },
+    {
+      label: 'Email',
+      key: 'email',
+      required: true,
+      displayOrder: 2,
+      type: 'string',
+      placeholder: 'Email',
+    },
+    {
+      label: 'Username',
+      key: 'preferred_username',
+      required: true,
+      displayOrder: 3,
+      type: 'string',
+      placeholder: 'Username/handle',
+    },
+    {
+      label: 'Password',
+      key: 'password',
+      required: true,
+      displayOrder: 4,
+      type: 'password',
+      placeholder: 'Password',
+    },
+  ],
+};
+
+const customTheme = {
+  ...AmplifyTheme,
+  button: {
+    ...AmplifyTheme.button,
+    backgroundColor: colors.primary,
+    borderRadius: 100,
+  },
+  buttonDisabled: {
+    ...AmplifyTheme.buttonDisabled,
+    backgroundColor: '#5c78ff',
+    borderRadius: 100,
+  },
+  sectionFooterLink: {
+    ...AmplifyTheme.sectionFooterLink,
+    color: colors.primary,
+  },
+};
+
+// export default withAuthenticator(App, {signUpConfig, theme: customTheme});
 export default App;
