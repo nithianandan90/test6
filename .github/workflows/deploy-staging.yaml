@@ -13,15 +13,16 @@ env:
   AMPLIFY_FACEBOOK_CLIENT_SECRET: ${{ secrets.AMPLIFY_FACEBOOK_CLIENT_SECRET }}
   AMPLIFY_GOOGLE_CLIENT_ID: ${{ secrets.AMPLIFY_GOOGLE_CLIENT_ID }}
   AMPLIFY_GOOGLE_CLIENT_SECRET: ${{ secrets.AMPLIFY_GOOGLE_CLIENT_SECRET }}
+
 jobs:
   deploy-backend:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-
+      
       - uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 18.x
           cache: npm
       
     #Install and configure AWS cli
@@ -45,7 +46,7 @@ jobs:
     
     #Initialize the backend environment
     - name: Initialize backend environment
-      run: ./.github/.scripts/amplify-init.sh staging 
+      run: ./.github/scripts/amplify-init.sh staging 
     
     #Push changes to the cloud
     - name: Push backend changes
