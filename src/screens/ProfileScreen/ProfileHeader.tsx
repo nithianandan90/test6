@@ -45,7 +45,7 @@ const ProfileHeader = ({user}: IProfileHeader) => {
         </View>
         <View style={styles.numberContainer}>
           <Text style={styles.numberText}>{user.nofFollowers}</Text>
-          <Text>Followerss</Text>
+          <Text>Followers</Text>
         </View>
         <View style={styles.numberContainer}>
           <Text style={styles.numberText}>{user.nofFollowings}</Text>
