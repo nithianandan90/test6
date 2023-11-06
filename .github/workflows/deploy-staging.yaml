@@ -26,11 +26,11 @@ jobs:
           cache: npm
 
       #Install and configure AWS cli
-      - name: Install and configure AWS cli
-        run: |
-          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-          unzip awscliv2.zip
-          sudo ./aws/install --update
+      # - name: Install and configure AWS cli
+      #   run: |
+      #     curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+      #     unzip awscliv2.zip
+      #     sudo ./aws/install --update
 
       - name: Configure AWS cli credentials
         run: |
