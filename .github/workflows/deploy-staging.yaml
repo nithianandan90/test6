@@ -42,7 +42,7 @@ jobs:
     - name: Install AWS Amplify cli
       run: |
         npm install -g --unsafe-perm @aws-amplify/cli@latest
-        echo "amplify version ${amplify --version}"
+        echo "amplify version $(amplify --version)"
     
     #Initialize the backend environment
     - name: Initialize backend environment
@@ -57,6 +57,7 @@ jobs:
 
   build-android:
     name: Install and build android app (Preview)
+    needs: deploy-backend
     uses: ./.github/workflows/eas-build.yaml
     secrets: inherit
     with:
@@ -64,6 +65,7 @@ jobs:
       PROFILE: preview
   # build-ios:
   #   name: Install and build IOS app (Preview)
+  #   needs: deploy-backend  
   #   uses: ./.github/workflows/eas-build.yaml
   #   secrets: inherit
   #   with:
