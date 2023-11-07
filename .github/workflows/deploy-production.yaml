@@ -58,15 +58,15 @@ jobs:
   submit-android:
     name: Submit android app to Play Store
     needs: build-android
-    users: ./.github/workflows/eas-submit.yaml
+    uses: ./.github/workflows/eas-submit.yaml
     secrets: inherit
     with:
       PLATFORM: android
 
-  submit-ios:
-    name: Submit android app to App Store
-    needs: build-ios
-    users: ./.github/workflows/eas-submit.yaml
-    secrets: inherit
-    with:
-      PLATFORM: android
+  # submit-ios:
+  #   name: Submit android app to App Store
+  #   needs: build-ios
+  #   uses: ./.github/workflows/eas-submit.yaml
+  #   secrets: inherit
+  #   with:
+  #     PLATFORM: android
