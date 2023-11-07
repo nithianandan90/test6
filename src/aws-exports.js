@@ -3,15 +3,15 @@
 
 const awsmobile = {
     "aws_project_region": "ap-southeast-1",
-    "aws_appsync_graphqlEndpoint": "https://g4tclyumhvhv5gv56j5fnw5hda.appsync-api.ap-southeast-1.amazonaws.com/graphql",
+    "aws_appsync_graphqlEndpoint": "https://bw4swbin3vemnf7cd5h7uuskai.appsync-api.ap-southeast-1.amazonaws.com/graphql",
     "aws_appsync_region": "ap-southeast-1",
     "aws_appsync_authenticationType": "AMAZON_COGNITO_USER_POOLS",
-    "aws_cognito_identity_pool_id": "ap-southeast-1:fc7b2261-99e5-4fd0-b310-bfa802d42deb",
+    "aws_cognito_identity_pool_id": "ap-southeast-1:152815ca-671f-4220-8a49-883a8a7b5548",
     "aws_cognito_region": "ap-southeast-1",
-    "aws_user_pools_id": "ap-southeast-1_HH5wszRVh",
-    "aws_user_pools_web_client_id": "42so783jjo47amelltlo503iff",
+    "aws_user_pools_id": "ap-southeast-1_DOrtYaHso",
+    "aws_user_pools_web_client_id": "322p2v588eqq3eq20b6mkhlt5c",
     "oauth": {
-        "domain": "vdg2xzlesm9v-dev.auth.ap-southeast-1.amazoncognito.com",
+        "domain": "vdg2xzlesm9v-prod.auth.ap-southeast-1.amazoncognito.com",
         "scope": [
             "phone",
             "email",
@@ -49,7 +49,7 @@ const awsmobile = {
     "aws_cognito_verification_mechanisms": [
         "EMAIL"
     ],
-    "aws_user_files_s3_bucket": "instalearning785bfdddac3a40a9be890ad99482a43f90805-dev",
+    "aws_user_files_s3_bucket": "instalearning785bfdddac3a40a9be890ad99482a43f93726-prod",
     "aws_user_files_s3_bucket_region": "ap-southeast-1"
 };
 
