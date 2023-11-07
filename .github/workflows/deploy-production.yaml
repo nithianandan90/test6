@@ -40,7 +40,7 @@ jobs:
 
   build-android:
     name: Install and build android app (Production)
-    # needs: patch-version
+    needs: patch-version
     uses: ./.github/workflows/eas-build.yaml
     secrets: inherit
     with:
