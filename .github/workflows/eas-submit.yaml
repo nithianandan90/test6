@@ -22,5 +22,10 @@ jobs:
           eas-version: latest
           token: ${{ secrets.EXPO_TOKEN }}
 
+      - name: Decore and write the service_account.json
+        env:
+          GOOGLE_SERVICE_ACCOUNT_BASE64: ${{secrets.GOOGLE_SERVICE_ACCOUNT}}
+        run: echo $GOOGLE_SERVICE_ACCOUNT_BASE64 | base64 --decode > service_account.json
+
       - name: Submit to EAS
         run: eas submit --profile ${{inputs.PROFILE}} --platform ${{inputs.PLATFORM}} --latest --non-interactive
