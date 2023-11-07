@@ -1,13 +1,14 @@
 {
   "name": "testapp6",
-  "version": "1.0.2",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "postversion": "npx react-native-version --never-amend"
   },
   "dependencies": {
     "@apollo/client": "^3.8.4",
