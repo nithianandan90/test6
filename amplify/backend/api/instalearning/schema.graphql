@@ -42,6 +42,7 @@ type Post
       sortKeyFields: ["createdAt"]
     )
   description: String
+  location: String
   image: String
   images: [String!]
   video: String

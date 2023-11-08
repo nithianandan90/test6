@@ -55,6 +55,7 @@ export const createLike = /* GraphQL */ `mutation CreateLike(
       createdAt
       type
       description
+      location
       image
       images
       video
@@ -157,6 +158,7 @@ export const updateLike = /* GraphQL */ `mutation UpdateLike(
       createdAt
       type
       description
+      location
       image
       images
       video
@@ -259,6 +261,7 @@ export const deleteLike = /* GraphQL */ `mutation DeleteLike(
       createdAt
       type
       description
+      location
       image
       images
       video
@@ -363,6 +366,7 @@ export const createComment = /* GraphQL */ `mutation CreateComment(
       createdAt
       type
       description
+      location
       image
       images
       video
@@ -466,6 +470,7 @@ export const updateComment = /* GraphQL */ `mutation UpdateComment(
       createdAt
       type
       description
+      location
       image
       images
       video
@@ -569,6 +574,7 @@ export const deleteComment = /* GraphQL */ `mutation DeleteComment(
       createdAt
       type
       description
+      location
       image
       images
       video
@@ -632,6 +638,7 @@ export const createPost = /* GraphQL */ `mutation CreatePost(
     createdAt
     type
     description
+    location
     image
     images
     video
@@ -728,6 +735,7 @@ export const updatePost = /* GraphQL */ `mutation UpdatePost(
     createdAt
     type
     description
+    location
     image
     images
     video
@@ -824,6 +832,7 @@ export const deletePost = /* GraphQL */ `mutation DeletePost(
     createdAt
     type
     description
+    location
     image
     images
     video
@@ -932,6 +941,7 @@ export const createUser = /* GraphQL */ `mutation CreateUser(
         createdAt
         type
         description
+        location
         image
         images
         video
@@ -1018,6 +1028,7 @@ export const updateUser = /* GraphQL */ `mutation UpdateUser(
         createdAt
         type
         description
+        location
         image
         images
         video
@@ -1104,6 +1115,7 @@ export const deleteUser = /* GraphQL */ `mutation DeleteUser(
         createdAt
         type
         description
+        location
         image
         images
         video

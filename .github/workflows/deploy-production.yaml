@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - dev #TODO remove when we are done
+      # - dev
 
 jobs:
   deploy-backend:

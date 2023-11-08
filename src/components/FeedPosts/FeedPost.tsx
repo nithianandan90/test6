@@ -88,13 +88,17 @@ const FeedPost = (props: IFeedPost) => {
       {/* Header */}
       <View style={styles.header}>
         <UserImage imageKey={post?.User?.image || undefined} />
+        <View>
+          <Text onPress={navigateToUser} style={styles.userName}>
+            {post.User?.username}
+          </Text>
+          <Text style={styles.location}>{post.location && post.location}</Text>
+        </View>
         {/* <Image
           source={{uri: imageUri || DEFAULT_USER_IMAGE}}
           style={styles.userAvatar}
         /> */}
-        <Text onPress={navigateToUser} style={styles.userName}>
-          {post.User?.username}
-        </Text>
+
         <PostMenu post={post} />
       </View>
       {/* Content */}
@@ -219,6 +223,9 @@ const styles = StyleSheet.create({
   },
   commentText: {
     flex: 1,
+  },
+  location: {
+    color: colors.grey,
   },
 });
 

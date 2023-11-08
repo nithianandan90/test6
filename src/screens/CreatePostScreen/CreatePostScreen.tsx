@@ -25,6 +25,8 @@ const CreatePostScreen = () => {
 
   const [description, setDescription] = useState('');
 
+  const [location, setLocation] = useState('');
+
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const [progress, setProgress] = useState(0);
@@ -63,6 +65,7 @@ const CreatePostScreen = () => {
 
     const input: CreatePostInput = {
       description,
+      location,
       type: 'POST',
       image: undefined,
       images: undefined,
@@ -131,6 +134,12 @@ const CreatePostScreen = () => {
         style={styles.input}
         value={description}
         onChangeText={setDescription}
+      />
+      <TextInput
+        placeholder="Location..."
+        style={styles.input}
+        value={location}
+        onChangeText={setLocation}
       />
       <Button
         text={isSubmitting ? 'Submitting...' : 'Submit'}

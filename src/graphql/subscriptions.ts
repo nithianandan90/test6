@@ -54,6 +54,7 @@ export const onCreateCommentByPostId = /* GraphQL */ `subscription OnCreateComme
       createdAt
       type
       description
+      location
       image
       images
       video
@@ -155,6 +156,7 @@ export const onCreateLike = /* GraphQL */ `subscription OnCreateLike(
       createdAt
       type
       description
+      location
       image
       images
       video
@@ -257,6 +259,7 @@ export const onUpdateLike = /* GraphQL */ `subscription OnUpdateLike(
       createdAt
       type
       description
+      location
       image
       images
       video
@@ -359,6 +362,7 @@ export const onDeleteLike = /* GraphQL */ `subscription OnDeleteLike(
       createdAt
       type
       description
+      location
       image
       images
       video
@@ -463,6 +467,7 @@ export const onCreateComment = /* GraphQL */ `subscription OnCreateComment(
       createdAt
       type
       description
+      location
       image
       images
       video
@@ -566,6 +571,7 @@ export const onUpdateComment = /* GraphQL */ `subscription OnUpdateComment(
       createdAt
       type
       description
+      location
       image
       images
       video
@@ -669,6 +675,7 @@ export const onDeleteComment = /* GraphQL */ `subscription OnDeleteComment(
       createdAt
       type
       description
+      location
       image
       images
       video
@@ -732,6 +739,7 @@ export const onCreatePost = /* GraphQL */ `subscription OnCreatePost(
     createdAt
     type
     description
+    location
     image
     images
     video
@@ -828,6 +836,7 @@ export const onUpdatePost = /* GraphQL */ `subscription OnUpdatePost(
     createdAt
     type
     description
+    location
     image
     images
     video
@@ -924,6 +933,7 @@ export const onDeletePost = /* GraphQL */ `subscription OnDeletePost(
     createdAt
     type
     description
+    location
     image
     images
     video
@@ -1032,6 +1042,7 @@ export const onCreateUser = /* GraphQL */ `subscription OnCreateUser(
         createdAt
         type
         description
+        location
         image
         images
         video
@@ -1118,6 +1129,7 @@ export const onUpdateUser = /* GraphQL */ `subscription OnUpdateUser(
         createdAt
         type
         description
+        location
         image
         images
         video
@@ -1204,6 +1216,7 @@ export const onDeleteUser = /* GraphQL */ `subscription OnDeleteUser(
         createdAt
         type
         description
+        location
         image
         images
         video

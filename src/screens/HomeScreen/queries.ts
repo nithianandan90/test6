@@ -22,6 +22,7 @@ export const postByDate = gql`
         createdAt
         type
         description
+        location
         image
         images
         video
