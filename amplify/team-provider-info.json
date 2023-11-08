@@ -19,7 +19,7 @@
       "function": {
         "instalearningPostConfirmation": {
           "deploymentBucketName": "amplify-instalearning-prod-93726-deployment",
-          "s3Key": "amplify-builds/instalearningPostConfirmation-53736b6e5859744a7770-build.zip"
+          "s3Key": "amplify-builds/instalearningPostConfirmation-58776473586d374a4732-build.zip"
         },
         "instalearning": {}
       },
