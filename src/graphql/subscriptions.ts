@@ -41,6 +41,16 @@ export const onCreateCommentByPostId = /* GraphQL */ `subscription OnCreateComme
         startedAt
         __typename
       }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
+        nextToken
+        startedAt
+        __typename
+      }
       createdAt
       updatedAt
       _version
@@ -139,6 +149,16 @@ export const onCreateLike = /* GraphQL */ `subscription OnCreateLike(
         __typename
       }
       Likes {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
         nextToken
         startedAt
         __typename
@@ -246,6 +266,16 @@ export const onUpdateLike = /* GraphQL */ `subscription OnUpdateLike(
         startedAt
         __typename
       }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
+        nextToken
+        startedAt
+        __typename
+      }
       createdAt
       updatedAt
       _version
@@ -345,6 +375,16 @@ export const onDeleteLike = /* GraphQL */ `subscription OnDeleteLike(
         __typename
       }
       Likes {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
         nextToken
         startedAt
         __typename
@@ -454,6 +494,16 @@ export const onCreateComment = /* GraphQL */ `subscription OnCreateComment(
         startedAt
         __typename
       }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
+        nextToken
+        startedAt
+        __typename
+      }
       createdAt
       updatedAt
       _version
@@ -558,6 +608,16 @@ export const onUpdateComment = /* GraphQL */ `subscription OnUpdateComment(
         startedAt
         __typename
       }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
+        nextToken
+        startedAt
+        __typename
+      }
       createdAt
       updatedAt
       _version
@@ -658,6 +718,16 @@ export const onDeleteComment = /* GraphQL */ `subscription OnDeleteComment(
         __typename
       }
       Likes {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
         nextToken
         startedAt
         __typename
@@ -772,6 +842,16 @@ export const onCreatePost = /* GraphQL */ `subscription OnCreatePost(
         startedAt
         __typename
       }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
+        nextToken
+        startedAt
+        __typename
+      }
       createdAt
       updatedAt
       _version
@@ -869,6 +949,16 @@ export const onUpdatePost = /* GraphQL */ `subscription OnUpdatePost(
         startedAt
         __typename
       }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
+        nextToken
+        startedAt
+        __typename
+      }
       createdAt
       updatedAt
       _version
@@ -962,6 +1052,16 @@ export const onDeletePost = /* GraphQL */ `subscription OnDeletePost(
         __typename
       }
       Likes {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
         nextToken
         startedAt
         __typename
@@ -1095,6 +1195,40 @@ export const onCreateUser = /* GraphQL */ `subscription OnCreateUser(
       startedAt
       __typename
     }
+    Followers {
+      items {
+        id
+        followerID
+        followeeID
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      nextToken
+      startedAt
+      __typename
+    }
+    Followees {
+      items {
+        id
+        followerID
+        followeeID
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      nextToken
+      startedAt
+      __typename
+    }
     createdAt
     updatedAt
     _version
@@ -1170,6 +1304,40 @@ export const onUpdateUser = /* GraphQL */ `subscription OnUpdateUser(
         id
         userID
         postID
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      nextToken
+      startedAt
+      __typename
+    }
+    Followers {
+      items {
+        id
+        followerID
+        followeeID
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      nextToken
+      startedAt
+      __typename
+    }
+    Followees {
+      items {
+        id
+        followerID
+        followeeID
         createdAt
         updatedAt
         _version
@@ -1269,6 +1437,40 @@ export const onDeleteUser = /* GraphQL */ `subscription OnDeleteUser(
       startedAt
       __typename
     }
+    Followers {
+      items {
+        id
+        followerID
+        followeeID
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      nextToken
+      startedAt
+      __typename
+    }
+    Followees {
+      items {
+        id
+        followerID
+        followeeID
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      nextToken
+      startedAt
+      __typename
+    }
     createdAt
     updatedAt
     _version
@@ -1281,4 +1483,331 @@ export const onDeleteUser = /* GraphQL */ `subscription OnDeleteUser(
 ` as GeneratedSubscription<
   APITypes.OnDeleteUserSubscriptionVariables,
   APITypes.OnDeleteUserSubscription
+>;
+export const onCreateUserFollow = /* GraphQL */ `subscription OnCreateUserFollow(
+  $filter: ModelSubscriptionUserFollowFilterInput
+  $owner: String
+) {
+  onCreateUserFollow(filter: $filter, owner: $owner) {
+    id
+    followerID
+    followeeID
+    Follower {
+      id
+      name
+      email
+      bio
+      username
+      website
+      nofPosts
+      nofFollowers
+      nofFollowings
+      image
+      Posts {
+        nextToken
+        startedAt
+        __typename
+      }
+      Comments {
+        nextToken
+        startedAt
+        __typename
+      }
+      Likes {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
+        nextToken
+        startedAt
+        __typename
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+    Followee {
+      id
+      name
+      email
+      bio
+      username
+      website
+      nofPosts
+      nofFollowers
+      nofFollowings
+      image
+      Posts {
+        nextToken
+        startedAt
+        __typename
+      }
+      Comments {
+        nextToken
+        startedAt
+        __typename
+      }
+      Likes {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
+        nextToken
+        startedAt
+        __typename
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    owner
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnCreateUserFollowSubscriptionVariables,
+  APITypes.OnCreateUserFollowSubscription
+>;
+export const onUpdateUserFollow = /* GraphQL */ `subscription OnUpdateUserFollow(
+  $filter: ModelSubscriptionUserFollowFilterInput
+  $owner: String
+) {
+  onUpdateUserFollow(filter: $filter, owner: $owner) {
+    id
+    followerID
+    followeeID
+    Follower {
+      id
+      name
+      email
+      bio
+      username
+      website
+      nofPosts
+      nofFollowers
+      nofFollowings
+      image
+      Posts {
+        nextToken
+        startedAt
+        __typename
+      }
+      Comments {
+        nextToken
+        startedAt
+        __typename
+      }
+      Likes {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
+        nextToken
+        startedAt
+        __typename
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+    Followee {
+      id
+      name
+      email
+      bio
+      username
+      website
+      nofPosts
+      nofFollowers
+      nofFollowings
+      image
+      Posts {
+        nextToken
+        startedAt
+        __typename
+      }
+      Comments {
+        nextToken
+        startedAt
+        __typename
+      }
+      Likes {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
+        nextToken
+        startedAt
+        __typename
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    owner
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnUpdateUserFollowSubscriptionVariables,
+  APITypes.OnUpdateUserFollowSubscription
+>;
+export const onDeleteUserFollow = /* GraphQL */ `subscription OnDeleteUserFollow(
+  $filter: ModelSubscriptionUserFollowFilterInput
+  $owner: String
+) {
+  onDeleteUserFollow(filter: $filter, owner: $owner) {
+    id
+    followerID
+    followeeID
+    Follower {
+      id
+      name
+      email
+      bio
+      username
+      website
+      nofPosts
+      nofFollowers
+      nofFollowings
+      image
+      Posts {
+        nextToken
+        startedAt
+        __typename
+      }
+      Comments {
+        nextToken
+        startedAt
+        __typename
+      }
+      Likes {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
+        nextToken
+        startedAt
+        __typename
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+    Followee {
+      id
+      name
+      email
+      bio
+      username
+      website
+      nofPosts
+      nofFollowers
+      nofFollowings
+      image
+      Posts {
+        nextToken
+        startedAt
+        __typename
+      }
+      Comments {
+        nextToken
+        startedAt
+        __typename
+      }
+      Likes {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
+        nextToken
+        startedAt
+        __typename
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    owner
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnDeleteUserFollowSubscriptionVariables,
+  APITypes.OnDeleteUserFollowSubscription
 >;

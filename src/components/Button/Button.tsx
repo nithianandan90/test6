@@ -1,17 +1,23 @@
-import {Pressable, StyleSheet, Text, View} from 'react-native';
+import {Pressable, StyleSheet, Text, View, PressableProps} from 'react-native';
 import React from 'react';
 import colors from '../../theme/colors';
 import fonts from '../../theme/fonts';
 
-interface IButton {
+interface IButton extends PressableProps {
   text?: string;
   onPress?: () => void;
   inline?: boolean;
 }
 
-const Button = ({text = '', onPress = () => {}, inline}: IButton) => {
+const Button = ({
+  text = '',
+  onPress = () => {},
+  inline,
+  ...restProps
+}: IButton) => {
   return (
     <Pressable
+      {...restProps}
       style={[styles.container, inline ? {flex: 1} : {}]}
       onPress={onPress}>
       <Text style={styles.text}>{text}</Text>
