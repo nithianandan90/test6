@@ -1,4 +1,7 @@
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {
+  NativeStackNavigationProp,
+  NativeStackScreenProps,
+} from '@react-navigation/native-stack';
 import {BottomTabNavigationProp} from '@react-navigation/bottom-tabs';
 import {NavigatorScreenParams, RouteProp} from '@react-navigation/native';
 
@@ -20,6 +23,11 @@ export type BottomTabNavigatorParamList = {
 export type SearchTabNavigatorParamList = {
   Users: undefined;
   Posts: undefined;
+};
+
+export type UserFollowTabNavigatorParamList = {
+  Followers: undefined;
+  Followings: undefined;
 };
 
 export type MyProfileNavigationProp = BottomTabNavigationProp<
@@ -72,7 +80,15 @@ export type FeedNavigationProp = NativeStackNavigationProp<
 export type ProfileStackNavigatorParamList = {
   Profile: {userId: string};
   'Edit Profile': undefined;
+  UserFollow: {
+    id: string;
+  } & NavigatorScreenParams<UserFollowTabNavigatorParamList>;
 };
+
+export type UserFollowScreenProps = NativeStackScreenProps<
+  ProfileStackNavigatorParamList,
+  'UserFollow'
+>;
 
 export type ProfileNavigationProp = NativeStackNavigationProp<
   ProfileStackNavigatorParamList,

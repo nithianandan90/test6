@@ -4,14 +4,17 @@ import React from 'react';
 import {User} from '../../API';
 import {DEFAULT_USER_IMAGE} from '../../config';
 import {useNavigation} from '@react-navigation/native';
-import {ProfileNavigationProp} from '../../types/navigation';
+import {
+  ProfileNavigationProp,
+  UserProfileNavigationProp,
+} from '../../types/navigation';
 
 interface IUserListItem {
   user: User;
 }
 
 const UserListItem = ({user}: IUserListItem) => {
-  const navigation = useNavigation<ProfileNavigationProp>();
+  const navigation = useNavigation<UserProfileNavigationProp>();
 
   const goToUserScreen = () => {
     navigation.navigate('UserProfile', {

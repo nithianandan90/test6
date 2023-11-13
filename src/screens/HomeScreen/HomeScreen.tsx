@@ -10,23 +10,36 @@ import {
 import React, {useRef, useState, useEffect} from 'react';
 import FeedPost from '../../components/FeedPosts/FeedPost';
 import {useQuery} from '@apollo/client';
-import {postByDate} from './queries';
+import {userFeed} from './queries';
 import {
   ModelSortDirection,
   PostByDateQuery,
   PostByDateQueryVariables,
+  UserFeedQuery,
+  UserFeedQueryVariables,
 } from '../../API';
 import ApiErrorMessage from '../../components/ApiErrorMessage';
+import {useAuthContext} from '../../contexts/AuthContext';
 
 const HomeScreen = () => {
+  const {userId} = useAuthContext();
+
   const [activePostId, setActivePostId] = useState<string | null>(null);
   const [isFetchingMore, setIsFetchingMore] = useState(false);
   const {data, loading, error, refetch, fetchMore} = useQuery<
-    PostByDateQuery,
-    PostByDateQueryVariables
-  >(postByDate, {
-    variables: {type: 'POST', sortDirection: ModelSortDirection.DESC, limit: 5},
+    UserFeedQuery,
+    UserFeedQueryVariables
+  >(userFeed, {
+    variables: {
+      userID: userId,
+      sortDirection: ModelSortDirection.DESC,
+      limit: 5,
+    },
   });
+
+  console.log(userId);
+
+  console.log('data', data);
 
   const viewabilityConfig: ViewabilityConfig = {
     itemVisiblePercentThreshold: 51,
@@ -42,7 +55,7 @@ const HomeScreen = () => {
     },
   );
 
-  const nextToken = data?.postByDate?.nextToken;
+  const nextToken = data?.userFeed?.nextToken;
 
   const loadMore = async () => {
     console.log('loading more', nextToken);
@@ -81,7 +94,11 @@ const HomeScreen = () => {
 
   // console.log('data', data?.postByDate?.items);
 
-  const posts = (data?.postByDate?.items || []).filter(post => !post?._deleted);
+  console.log('data', JSON.stringify(data, null, 2));
+
+  const posts = (data?.userFeed?.items || [])
+    .filter(item => !item?._deleted && !item?.Post?._deleted)
+    .map(item => item?.Post);
 
   // console.log(JSON.stringify(posts, null, 2));
 

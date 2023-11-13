@@ -1,4 +1,4 @@
-import {Alert, Image, StyleSheet, Text, View} from 'react-native';
+import {Alert, Image, Pressable, StyleSheet, Text, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import user from '../../assets/data/user.json';
 import styles from './styles';
@@ -52,13 +52,15 @@ const ProfileHeader = ({user}: IProfileHeader) => {
 
   const navigation = useNavigation<ProfileNavigationProp>();
 
-  navigation.setOptions({title: user.username || 'Profile'});
+  useEffect(() => {
+    navigation.setOptions({title: user.username || 'Profile'});
+  }, []);
 
   useEffect(() => {
     if (user.image) {
       Storage.get(user.image).then(setImageUri);
     }
-  }, [user]);
+  }, [user?.username]);
 
   console.log(JSON.stringify(userFollowingsData, null, 2));
 
@@ -106,14 +108,28 @@ const ProfileHeader = ({user}: IProfileHeader) => {
           <Text style={styles.numberText}>{user.nofPosts}</Text>
           <Text>Posts</Text>
         </View>
-        <View style={styles.numberContainer}>
+        <Pressable
+          style={styles.numberContainer}
+          onPress={() =>
+            navigation.navigate('UserFollow', {
+              id: user.id,
+              screen: 'Followers',
+            })
+          }>
           <Text style={styles.numberText}>{user.nofFollowers}</Text>
           <Text>Followerss</Text>
-        </View>
-        <View style={styles.numberContainer}>
+        </Pressable>
+        <Pressable
+          style={styles.numberContainer}
+          onPress={() =>
+            navigation.navigate('UserFollow', {
+              id: user.id,
+              screen: 'Followings',
+            })
+          }>
           <Text style={styles.numberText}>{user.nofFollowings}</Text>
           <Text>Following</Text>
-        </View>
+        </Pressable>
       </View>
       <Text style={styles.name}>{user.name}</Text>
       <Text>{user.bio}</Text>
