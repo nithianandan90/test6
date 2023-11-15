@@ -91,7 +91,7 @@
         },
         "FeedGenerator": {
           "deploymentBucketName": "amplify-instalearning-dev-90805-deployment",
-          "s3Key": "amplify-builds/FeedGenerator-5a44704d537372373464-build.zip"
+          "s3Key": "amplify-builds/FeedGenerator-596b49566d324c625161-build.zip"
         }
       },
       "storage": {

@@ -24,7 +24,7 @@ const handle = async ({eventName, dynamodb}) => {
     !!dynamodb.NewImage._deleted?.BOOL
   ) {
     // Remove all the followeeID's posts from the user (followerID) feed
-    // await removeUserFeedPostsByFolloweeId(followerID, followeeID);
+    await removeUserFeedPostsByFolloweeId(followerID, followeeID);
   }
 };
 
@@ -81,10 +81,10 @@ const addFolloweesPostsToUserFeed = async (followerID, followeeID) => {
   console.log(`Adding ${posts.length} posts to User feed`, posts);
 
   //   // add all the posts to the UserFeedPost
-  //   for (let i = 0; i < posts.length; i += BATCH_SIZE) {
-  //     const chunk = posts.slice(i, i + BATCH_SIZE);
-  //     await addPostsToUserFeed(followerID, chunk);
-  //   }
+  for (let i = 0; i < posts.length; i += BATCH_SIZE) {
+    const chunk = posts.slice(i, i + BATCH_SIZE);
+    await addPostsToUserFeed(followerID, chunk);
+  }
 };
 
 const addPostsToUserFeed = async (userID, posts) => {
@@ -97,7 +97,13 @@ const addPostsToUserFeed = async (userID, posts) => {
   };
 
   try {
+    console.log('params', params);
+
+    console.log('writing');
+
     await docClient.batchWrite(params).promise();
+
+    console.log('completed writing');
   } catch (e) {
     console.log(e);
   }
@@ -126,7 +132,7 @@ const generatePutRequest = (post, userID) => {
     PutRequest: {
       Item: {
         id: `${userID}::${post.id}`,
-        owner: `${userID}::${userID}`,
+        owner: `${userID}`,
 
         postCreatedAt: post.createdAt,
         postID: post.id,
