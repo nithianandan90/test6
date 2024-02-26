@@ -1,6 +1,7 @@
 import {useMutation, useQuery} from '@apollo/client';
 import {
   createLike,
+  createNotification,
   deleteLike,
   likesForPostByUser,
   updatePost,
@@ -8,10 +9,14 @@ import {
 import {
   CreateLikeMutation,
   CreateLikeMutationVariables,
+  CreateNotificationInput,
+  CreateNotificationMutation,
+  CreateNotificationMutationVariables,
   DeleteLikeMutation,
   DeleteLikeMutationVariables,
   LikesForPostByUserQuery,
   LikesForPostByUserQueryVariables,
+  NotificationTypes,
   Post,
   UpdatePostMutation,
   UpdatePostMutationVariables,
@@ -34,15 +39,27 @@ const useLikeService = (post: Post) => {
   const [doCreateLike] = useMutation<
     CreateLikeMutation,
     CreateLikeMutationVariables
-  >(createLike, {
-    variables: {input: {userID: userId, postID: post.id}},
-    refetchQueries: ['LikesForPostByUser'],
-  });
+  >(createLike);
 
   const [doDeleteLike] = useMutation<
     DeleteLikeMutation,
     DeleteLikeMutationVariables
   >(deleteLike);
+
+  const [doCreateNotification] = useMutation<
+    CreateNotificationMutation,
+    CreateNotificationMutationVariables
+  >(createNotification, {
+    variables: {
+      input: {
+        type: NotificationTypes.NEW_LIKE,
+        actorId: userId,
+        userId: post.userID,
+        readAt: 0,
+        notificationPostId: post.id,
+      },
+    },
+  });
 
   const userLike = (usersLikeData?.likesForPostByUser?.items || []).filter(
     like => !like?._deleted,
@@ -65,14 +82,34 @@ const useLikeService = (post: Post) => {
 
     if (userLike) {
       //delete the user likes
-      doDeleteLike({
-        variables: {input: {id: userLike.id, _version: userLike._version}},
-      });
-      incrementNofLikes(-1);
+      onDeleteLike();
     } else {
-      doCreateLike();
-      incrementNofLikes(1);
+      onAddLike();
     }
+  };
+
+  const onAddLike = async () => {
+    const data = await doCreateLike({
+      variables: {input: {userID: userId, postID: post.id}},
+      refetchQueries: ['LikesForPostByUser'],
+    });
+
+    console.log('lke data', JSON.stringify(data, null, 3));
+
+    await doCreateNotification();
+
+    incrementNofLikes(1);
+  };
+
+  const onDeleteLike = () => {
+    if (!userLike) {
+      return;
+    }
+    // delete the user like
+    doDeleteLike({
+      variables: {input: {id: userLike.id, _version: userLike._version}},
+    });
+    incrementNofLikes(-1);
   };
 
   return {

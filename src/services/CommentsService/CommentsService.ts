@@ -2,13 +2,21 @@ import {useMutation, useQuery} from '@apollo/client';
 import {
   CreateCommentMutation,
   CreateCommentMutationVariables,
+  CreateNotificationMutation,
+  CreateNotificationMutationVariables,
   GetPostQuery,
   GetPostQueryVariables,
+  NotificationTypes,
   Post,
   UpdatePostMutation,
   UpdatePostMutationVariables,
 } from '../../API';
-import {createComment, getPost, updatePost} from './queries';
+import {
+  createComment,
+  createNotification,
+  getPost,
+  updatePost,
+} from './queries';
 import {Alert} from 'react-native';
 import {useAuthContext} from '../../contexts/AuthContext';
 
@@ -32,6 +40,11 @@ const useCommentsService = (postId: string) => {
     CreateCommentMutationVariables
   >(createComment);
 
+  const [doCreateNotification] = useMutation<
+    CreateNotificationMutation,
+    CreateNotificationMutationVariables
+  >(createNotification);
+
   const incrementNofComments = (amount: 1 | -1) => {
     if (!post) {
       Alert.alert('Failed to load post');
@@ -49,17 +62,37 @@ const useCommentsService = (postId: string) => {
     });
   };
 
-  const onCreateComment = (newComment: string) => {
+  const onCreateComment = async (newComment: string) => {
     if (!post) {
       Alert.alert('Failed to load post');
       return;
     }
     try {
-      doCreateComment({
+      const response = await doCreateComment({
         variables: {
           input: {comment: newComment, userID: userId, postID: post.id},
         },
       });
+
+      const notificationParams = {
+        variables: {
+          input: {
+            type: NotificationTypes.NEW_COMMENT,
+            actorId: userId,
+            userId: post?.User?.id || '',
+            readAt: 0,
+            notificationPostId: post.id,
+            notificationCommentId: response?.data?.createComment?.id,
+          },
+        },
+      };
+
+      const notificationResponse = await doCreateNotification(
+        notificationParams,
+      );
+
+      console.log('notification response', notificationResponse);
+
       incrementNofComments(1);
     } catch (e) {
       Alert.alert('Error submitting post', (e as Error).message);

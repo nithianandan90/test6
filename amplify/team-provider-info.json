@@ -87,7 +87,7 @@
         },
         "UserFollowTrigger": {
           "deploymentBucketName": "amplify-instalearning-dev-90805-deployment",
-          "s3Key": "amplify-builds/UserFollowTrigger-7056476c32716b686676-build.zip"
+          "s3Key": "amplify-builds/UserFollowTrigger-51377a416752646a6b72-build.zip"
         },
         "FeedGenerator": {
           "deploymentBucketName": "amplify-instalearning-dev-90805-deployment",
