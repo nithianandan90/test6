@@ -6,7 +6,7 @@ const AWS = require('aws-sdk');
 var docClient = new AWS.DynamoDB.DocumentClient();
 
 const env = process.env.ENV;
-const AppsyncID = process.env.API_INSTALEARNING_GRAPHQLAPIIDOUTPUT;
+const AppsyncID = process.env.API_CLRNCEAPP_GRAPHQLAPIIDOUTPUT;
 
 const TableName = `User-${AppsyncID}-${env}`;
 

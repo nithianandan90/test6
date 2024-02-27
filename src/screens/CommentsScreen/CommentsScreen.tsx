@@ -30,7 +30,7 @@ import {
 const CommentsScreen = () => {
   const route = useRoute<CommentsRouteProp>();
 
-  const postId = route.params.postId;
+  const postId = route?.params?.postId;
 
   const [newComments, setNewComments] = useState<CommentType[]>([]);
 

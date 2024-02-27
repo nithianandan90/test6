@@ -84,6 +84,14 @@
         "instalearningPostConfirmation": {
           "deploymentBucketName": "amplify-instalearning-dev-90805-deployment",
           "s3Key": "amplify-builds/instalearningPostConfirmation-63685567704e46335972-build.zip"
+        },
+        "UserFollowTrigger": {
+          "deploymentBucketName": "amplify-instalearning-dev-90805-deployment",
+          "s3Key": "amplify-builds/UserFollowTrigger-51377a416752646a6b72-build.zip"
+        },
+        "FeedGenerator": {
+          "deploymentBucketName": "amplify-instalearning-dev-90805-deployment",
+          "s3Key": "amplify-builds/FeedGenerator-596b49566d324c625161-build.zip"
         }
       },
       "storage": {

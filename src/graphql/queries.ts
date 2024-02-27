@@ -39,6 +39,22 @@ export const getLike = /* GraphQL */ `query GetLike($id: ID!) {
         startedAt
         __typename
       }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
+        nextToken
+        startedAt
+        __typename
+      }
+      fcmToken
+      Notifications {
+        nextToken
+        startedAt
+        __typename
+      }
       createdAt
       updatedAt
       _version
@@ -70,6 +86,7 @@ export const getLike = /* GraphQL */ `query GetLike($id: ID!) {
         nofFollowers
         nofFollowings
         image
+        fcmToken
         createdAt
         updatedAt
         _version
@@ -126,6 +143,7 @@ export const listLikes = /* GraphQL */ `query ListLikes(
         nofFollowers
         nofFollowings
         image
+        fcmToken
         createdAt
         updatedAt
         _version
@@ -194,6 +212,7 @@ export const syncLikes = /* GraphQL */ `query SyncLikes(
         nofFollowers
         nofFollowings
         image
+        fcmToken
         createdAt
         updatedAt
         _version
@@ -264,6 +283,7 @@ export const likesByUserID = /* GraphQL */ `query LikesByUserID(
         nofFollowers
         nofFollowings
         image
+        fcmToken
         createdAt
         updatedAt
         _version
@@ -339,6 +359,7 @@ export const likesForPostByUser = /* GraphQL */ `query LikesForPostByUser(
         nofFollowers
         nofFollowings
         image
+        fcmToken
         createdAt
         updatedAt
         _version
@@ -416,6 +437,22 @@ export const getComment = /* GraphQL */ `query GetComment($id: ID!) {
         startedAt
         __typename
       }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
+        nextToken
+        startedAt
+        __typename
+      }
+      fcmToken
+      Notifications {
+        nextToken
+        startedAt
+        __typename
+      }
       createdAt
       updatedAt
       _version
@@ -447,6 +484,7 @@ export const getComment = /* GraphQL */ `query GetComment($id: ID!) {
         nofFollowers
         nofFollowings
         image
+        fcmToken
         createdAt
         updatedAt
         _version
@@ -507,6 +545,7 @@ export const listComments = /* GraphQL */ `query ListComments(
         nofFollowers
         nofFollowings
         image
+        fcmToken
         createdAt
         updatedAt
         _version
@@ -579,6 +618,7 @@ export const syncComments = /* GraphQL */ `query SyncComments(
         nofFollowers
         nofFollowings
         image
+        fcmToken
         createdAt
         updatedAt
         _version
@@ -653,6 +693,7 @@ export const commentsByUserID = /* GraphQL */ `query CommentsByUserID(
         nofFollowers
         nofFollowings
         image
+        fcmToken
         createdAt
         updatedAt
         _version
@@ -729,6 +770,7 @@ export const commentsForPost = /* GraphQL */ `query CommentsForPost(
         nofFollowers
         nofFollowings
         image
+        fcmToken
         createdAt
         updatedAt
         _version
@@ -807,6 +849,22 @@ export const getPost = /* GraphQL */ `query GetPost($id: ID!) {
         __typename
       }
       Likes {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
+        nextToken
+        startedAt
+        __typename
+      }
+      fcmToken
+      Notifications {
         nextToken
         startedAt
         __typename
@@ -892,6 +950,7 @@ export const listPosts = /* GraphQL */ `query ListPosts(
         nofFollowers
         nofFollowings
         image
+        fcmToken
         createdAt
         updatedAt
         _version
@@ -958,6 +1017,7 @@ export const syncPosts = /* GraphQL */ `query SyncPosts(
         nofFollowers
         nofFollowings
         image
+        fcmToken
         createdAt
         updatedAt
         _version
@@ -1028,6 +1088,7 @@ export const postByDate = /* GraphQL */ `query PostByDate(
         nofFollowers
         nofFollowings
         image
+        fcmToken
         createdAt
         updatedAt
         _version
@@ -1099,6 +1160,7 @@ export const postsByUserID = /* GraphQL */ `query PostsByUserID(
         nofFollowers
         nofFollowings
         image
+        fcmToken
         createdAt
         updatedAt
         _version
@@ -1204,6 +1266,62 @@ export const getUser = /* GraphQL */ `query GetUser($id: ID!) {
       startedAt
       __typename
     }
+    Followers {
+      items {
+        id
+        followerID
+        followeeID
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      nextToken
+      startedAt
+      __typename
+    }
+    Followees {
+      items {
+        id
+        followerID
+        followeeID
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      nextToken
+      startedAt
+      __typename
+    }
+    fcmToken
+    Notifications {
+      items {
+        id
+        createdAt
+        type
+        readAt
+        userId
+        actorId
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        notificationPostId
+        notificationCommentId
+        owner
+        __typename
+      }
+      nextToken
+      startedAt
+      __typename
+    }
     createdAt
     updatedAt
     _version
@@ -1242,6 +1360,22 @@ export const listUsers = /* GraphQL */ `query ListUsers(
         __typename
       }
       Likes {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
+        nextToken
+        startedAt
+        __typename
+      }
+      fcmToken
+      Notifications {
         nextToken
         startedAt
         __typename
@@ -1294,6 +1428,22 @@ export const syncUsers = /* GraphQL */ `query SyncUsers(
         __typename
       }
       Likes {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
+        nextToken
+        startedAt
+        __typename
+      }
+      fcmToken
+      Notifications {
         nextToken
         startedAt
         __typename
@@ -1352,6 +1502,22 @@ export const usersByUsername = /* GraphQL */ `query UsersByUsername(
         startedAt
         __typename
       }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
+        nextToken
+        startedAt
+        __typename
+      }
+      fcmToken
+      Notifications {
+        nextToken
+        startedAt
+        __typename
+      }
       createdAt
       updatedAt
       _version
@@ -1368,4 +1534,1302 @@ export const usersByUsername = /* GraphQL */ `query UsersByUsername(
 ` as GeneratedQuery<
   APITypes.UsersByUsernameQueryVariables,
   APITypes.UsersByUsernameQuery
+>;
+export const getUserFollow = /* GraphQL */ `query GetUserFollow($id: ID!) {
+  getUserFollow(id: $id) {
+    id
+    followerID
+    followeeID
+    Follower {
+      id
+      name
+      email
+      bio
+      username
+      website
+      nofPosts
+      nofFollowers
+      nofFollowings
+      image
+      Posts {
+        nextToken
+        startedAt
+        __typename
+      }
+      Comments {
+        nextToken
+        startedAt
+        __typename
+      }
+      Likes {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
+        nextToken
+        startedAt
+        __typename
+      }
+      fcmToken
+      Notifications {
+        nextToken
+        startedAt
+        __typename
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+    Followee {
+      id
+      name
+      email
+      bio
+      username
+      website
+      nofPosts
+      nofFollowers
+      nofFollowings
+      image
+      Posts {
+        nextToken
+        startedAt
+        __typename
+      }
+      Comments {
+        nextToken
+        startedAt
+        __typename
+      }
+      Likes {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
+        nextToken
+        startedAt
+        __typename
+      }
+      fcmToken
+      Notifications {
+        nextToken
+        startedAt
+        __typename
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    owner
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.GetUserFollowQueryVariables,
+  APITypes.GetUserFollowQuery
+>;
+export const listUserFollows = /* GraphQL */ `query ListUserFollows(
+  $filter: ModelUserFollowFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listUserFollows(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      followerID
+      followeeID
+      Follower {
+        id
+        name
+        email
+        bio
+        username
+        website
+        nofPosts
+        nofFollowers
+        nofFollowings
+        image
+        fcmToken
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      Followee {
+        id
+        name
+        email
+        bio
+        username
+        website
+        nofPosts
+        nofFollowers
+        nofFollowings
+        image
+        fcmToken
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+    nextToken
+    startedAt
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.ListUserFollowsQueryVariables,
+  APITypes.ListUserFollowsQuery
+>;
+export const syncUserFollows = /* GraphQL */ `query SyncUserFollows(
+  $filter: ModelUserFollowFilterInput
+  $limit: Int
+  $nextToken: String
+  $lastSync: AWSTimestamp
+) {
+  syncUserFollows(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    lastSync: $lastSync
+  ) {
+    items {
+      id
+      followerID
+      followeeID
+      Follower {
+        id
+        name
+        email
+        bio
+        username
+        website
+        nofPosts
+        nofFollowers
+        nofFollowings
+        image
+        fcmToken
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      Followee {
+        id
+        name
+        email
+        bio
+        username
+        website
+        nofPosts
+        nofFollowers
+        nofFollowings
+        image
+        fcmToken
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+    nextToken
+    startedAt
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.SyncUserFollowsQueryVariables,
+  APITypes.SyncUserFollowsQuery
+>;
+export const userFollowings = /* GraphQL */ `query UserFollowings(
+  $followerID: ID!
+  $followeeID: ModelIDKeyConditionInput
+  $sortDirection: ModelSortDirection
+  $filter: ModelUserFollowFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  userFollowings(
+    followerID: $followerID
+    followeeID: $followeeID
+    sortDirection: $sortDirection
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      followerID
+      followeeID
+      Follower {
+        id
+        name
+        email
+        bio
+        username
+        website
+        nofPosts
+        nofFollowers
+        nofFollowings
+        image
+        fcmToken
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      Followee {
+        id
+        name
+        email
+        bio
+        username
+        website
+        nofPosts
+        nofFollowers
+        nofFollowings
+        image
+        fcmToken
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+    nextToken
+    startedAt
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.UserFollowingsQueryVariables,
+  APITypes.UserFollowingsQuery
+>;
+export const userFollowers = /* GraphQL */ `query UserFollowers(
+  $followeeID: ID!
+  $followerID: ModelIDKeyConditionInput
+  $sortDirection: ModelSortDirection
+  $filter: ModelUserFollowFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  userFollowers(
+    followeeID: $followeeID
+    followerID: $followerID
+    sortDirection: $sortDirection
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      followerID
+      followeeID
+      Follower {
+        id
+        name
+        email
+        bio
+        username
+        website
+        nofPosts
+        nofFollowers
+        nofFollowings
+        image
+        fcmToken
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      Followee {
+        id
+        name
+        email
+        bio
+        username
+        website
+        nofPosts
+        nofFollowers
+        nofFollowings
+        image
+        fcmToken
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+    nextToken
+    startedAt
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.UserFollowersQueryVariables,
+  APITypes.UserFollowersQuery
+>;
+export const getUserFeedPost = /* GraphQL */ `query GetUserFeedPost($id: ID!) {
+  getUserFeedPost(id: $id) {
+    id
+    userID
+    postID
+    postCreatedAt
+    postOwnerID
+    Post {
+      id
+      createdAt
+      type
+      description
+      location
+      image
+      images
+      video
+      nofComments
+      nofLikes
+      userID
+      User {
+        id
+        name
+        email
+        bio
+        username
+        website
+        nofPosts
+        nofFollowers
+        nofFollowings
+        image
+        fcmToken
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      Likes {
+        nextToken
+        startedAt
+        __typename
+      }
+      Comments {
+        nextToken
+        startedAt
+        __typename
+      }
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    owner
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.GetUserFeedPostQueryVariables,
+  APITypes.GetUserFeedPostQuery
+>;
+export const listUserFeedPosts = /* GraphQL */ `query ListUserFeedPosts(
+  $filter: ModelUserFeedPostFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listUserFeedPosts(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      userID
+      postID
+      postCreatedAt
+      postOwnerID
+      Post {
+        id
+        createdAt
+        type
+        description
+        location
+        image
+        images
+        video
+        nofComments
+        nofLikes
+        userID
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+    nextToken
+    startedAt
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.ListUserFeedPostsQueryVariables,
+  APITypes.ListUserFeedPostsQuery
+>;
+export const syncUserFeedPosts = /* GraphQL */ `query SyncUserFeedPosts(
+  $filter: ModelUserFeedPostFilterInput
+  $limit: Int
+  $nextToken: String
+  $lastSync: AWSTimestamp
+) {
+  syncUserFeedPosts(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    lastSync: $lastSync
+  ) {
+    items {
+      id
+      userID
+      postID
+      postCreatedAt
+      postOwnerID
+      Post {
+        id
+        createdAt
+        type
+        description
+        location
+        image
+        images
+        video
+        nofComments
+        nofLikes
+        userID
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+    nextToken
+    startedAt
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.SyncUserFeedPostsQueryVariables,
+  APITypes.SyncUserFeedPostsQuery
+>;
+export const userFeed = /* GraphQL */ `query UserFeed(
+  $userID: ID!
+  $postCreatedAt: ModelStringKeyConditionInput
+  $sortDirection: ModelSortDirection
+  $filter: ModelUserFeedPostFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  userFeed(
+    userID: $userID
+    postCreatedAt: $postCreatedAt
+    sortDirection: $sortDirection
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      userID
+      postID
+      postCreatedAt
+      postOwnerID
+      Post {
+        id
+        createdAt
+        type
+        description
+        location
+        image
+        images
+        video
+        nofComments
+        nofLikes
+        userID
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+    nextToken
+    startedAt
+    __typename
+  }
+}
+` as GeneratedQuery<APITypes.UserFeedQueryVariables, APITypes.UserFeedQuery>;
+export const userFeedPostsByPostID = /* GraphQL */ `query UserFeedPostsByPostID(
+  $postID: ID!
+  $sortDirection: ModelSortDirection
+  $filter: ModelUserFeedPostFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  userFeedPostsByPostID(
+    postID: $postID
+    sortDirection: $sortDirection
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      userID
+      postID
+      postCreatedAt
+      postOwnerID
+      Post {
+        id
+        createdAt
+        type
+        description
+        location
+        image
+        images
+        video
+        nofComments
+        nofLikes
+        userID
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+    nextToken
+    startedAt
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.UserFeedPostsByPostIDQueryVariables,
+  APITypes.UserFeedPostsByPostIDQuery
+>;
+export const userFeedPostsByPostOwnerID = /* GraphQL */ `query UserFeedPostsByPostOwnerID(
+  $postOwnerID: ID!
+  $sortDirection: ModelSortDirection
+  $filter: ModelUserFeedPostFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  userFeedPostsByPostOwnerID(
+    postOwnerID: $postOwnerID
+    sortDirection: $sortDirection
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      userID
+      postID
+      postCreatedAt
+      postOwnerID
+      Post {
+        id
+        createdAt
+        type
+        description
+        location
+        image
+        images
+        video
+        nofComments
+        nofLikes
+        userID
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+    nextToken
+    startedAt
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.UserFeedPostsByPostOwnerIDQueryVariables,
+  APITypes.UserFeedPostsByPostOwnerIDQuery
+>;
+export const getNotification = /* GraphQL */ `query GetNotification($id: ID!) {
+  getNotification(id: $id) {
+    id
+    createdAt
+    type
+    readAt
+    userId
+    actorId
+    User {
+      id
+      name
+      email
+      bio
+      username
+      website
+      nofPosts
+      nofFollowers
+      nofFollowings
+      image
+      Posts {
+        nextToken
+        startedAt
+        __typename
+      }
+      Comments {
+        nextToken
+        startedAt
+        __typename
+      }
+      Likes {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
+        nextToken
+        startedAt
+        __typename
+      }
+      fcmToken
+      Notifications {
+        nextToken
+        startedAt
+        __typename
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+    Actor {
+      id
+      name
+      email
+      bio
+      username
+      website
+      nofPosts
+      nofFollowers
+      nofFollowings
+      image
+      Posts {
+        nextToken
+        startedAt
+        __typename
+      }
+      Comments {
+        nextToken
+        startedAt
+        __typename
+      }
+      Likes {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
+        nextToken
+        startedAt
+        __typename
+      }
+      fcmToken
+      Notifications {
+        nextToken
+        startedAt
+        __typename
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+    Post {
+      id
+      createdAt
+      type
+      description
+      location
+      image
+      images
+      video
+      nofComments
+      nofLikes
+      userID
+      User {
+        id
+        name
+        email
+        bio
+        username
+        website
+        nofPosts
+        nofFollowers
+        nofFollowings
+        image
+        fcmToken
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      Likes {
+        nextToken
+        startedAt
+        __typename
+      }
+      Comments {
+        nextToken
+        startedAt
+        __typename
+      }
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+    Comment {
+      id
+      comment
+      createdAt
+      userID
+      postID
+      User {
+        id
+        name
+        email
+        bio
+        username
+        website
+        nofPosts
+        nofFollowers
+        nofFollowings
+        image
+        fcmToken
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      Post {
+        id
+        createdAt
+        type
+        description
+        location
+        image
+        images
+        video
+        nofComments
+        nofLikes
+        userID
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    notificationPostId
+    notificationCommentId
+    owner
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.GetNotificationQueryVariables,
+  APITypes.GetNotificationQuery
+>;
+export const listNotifications = /* GraphQL */ `query ListNotifications(
+  $filter: ModelNotificationFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listNotifications(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      createdAt
+      type
+      readAt
+      userId
+      actorId
+      User {
+        id
+        name
+        email
+        bio
+        username
+        website
+        nofPosts
+        nofFollowers
+        nofFollowings
+        image
+        fcmToken
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      Actor {
+        id
+        name
+        email
+        bio
+        username
+        website
+        nofPosts
+        nofFollowers
+        nofFollowings
+        image
+        fcmToken
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      Post {
+        id
+        createdAt
+        type
+        description
+        location
+        image
+        images
+        video
+        nofComments
+        nofLikes
+        userID
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      Comment {
+        id
+        comment
+        createdAt
+        userID
+        postID
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      notificationPostId
+      notificationCommentId
+      owner
+      __typename
+    }
+    nextToken
+    startedAt
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.ListNotificationsQueryVariables,
+  APITypes.ListNotificationsQuery
+>;
+export const syncNotifications = /* GraphQL */ `query SyncNotifications(
+  $filter: ModelNotificationFilterInput
+  $limit: Int
+  $nextToken: String
+  $lastSync: AWSTimestamp
+) {
+  syncNotifications(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    lastSync: $lastSync
+  ) {
+    items {
+      id
+      createdAt
+      type
+      readAt
+      userId
+      actorId
+      User {
+        id
+        name
+        email
+        bio
+        username
+        website
+        nofPosts
+        nofFollowers
+        nofFollowings
+        image
+        fcmToken
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      Actor {
+        id
+        name
+        email
+        bio
+        username
+        website
+        nofPosts
+        nofFollowers
+        nofFollowings
+        image
+        fcmToken
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      Post {
+        id
+        createdAt
+        type
+        description
+        location
+        image
+        images
+        video
+        nofComments
+        nofLikes
+        userID
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      Comment {
+        id
+        comment
+        createdAt
+        userID
+        postID
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      notificationPostId
+      notificationCommentId
+      owner
+      __typename
+    }
+    nextToken
+    startedAt
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.SyncNotificationsQueryVariables,
+  APITypes.SyncNotificationsQuery
+>;
+export const userNotifications = /* GraphQL */ `query UserNotifications(
+  $userId: ID!
+  $createdAt: ModelStringKeyConditionInput
+  $sortDirection: ModelSortDirection
+  $filter: ModelNotificationFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  userNotifications(
+    userId: $userId
+    createdAt: $createdAt
+    sortDirection: $sortDirection
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      createdAt
+      type
+      readAt
+      userId
+      actorId
+      User {
+        id
+        name
+        email
+        bio
+        username
+        website
+        nofPosts
+        nofFollowers
+        nofFollowings
+        image
+        fcmToken
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      Actor {
+        id
+        name
+        email
+        bio
+        username
+        website
+        nofPosts
+        nofFollowers
+        nofFollowings
+        image
+        fcmToken
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      Post {
+        id
+        createdAt
+        type
+        description
+        location
+        image
+        images
+        video
+        nofComments
+        nofLikes
+        userID
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      Comment {
+        id
+        comment
+        createdAt
+        userID
+        postID
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      notificationPostId
+      notificationCommentId
+      owner
+      __typename
+    }
+    nextToken
+    startedAt
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.UserNotificationsQueryVariables,
+  APITypes.UserNotificationsQuery
 >;

@@ -27,7 +27,7 @@ export const AuthContext = createContext<AuthContextType>({
 const AuthContextProvider = ({children}: {children: ReactNode}) => {
   const [user, setUser] = useState<UserType>(undefined);
 
-  //   console.log('usr', user);
+  console.log('usr', user);
 
   const checkUser = async () => {
     try {

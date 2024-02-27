@@ -42,6 +42,22 @@ export const createLike = /* GraphQL */ `mutation CreateLike(
         startedAt
         __typename
       }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
+        nextToken
+        startedAt
+        __typename
+      }
+      fcmToken
+      Notifications {
+        nextToken
+        startedAt
+        __typename
+      }
       createdAt
       updatedAt
       _version
@@ -73,6 +89,7 @@ export const createLike = /* GraphQL */ `mutation CreateLike(
         nofFollowers
         nofFollowings
         image
+        fcmToken
         createdAt
         updatedAt
         _version
@@ -145,6 +162,22 @@ export const updateLike = /* GraphQL */ `mutation UpdateLike(
         startedAt
         __typename
       }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
+        nextToken
+        startedAt
+        __typename
+      }
+      fcmToken
+      Notifications {
+        nextToken
+        startedAt
+        __typename
+      }
       createdAt
       updatedAt
       _version
@@ -176,6 +209,7 @@ export const updateLike = /* GraphQL */ `mutation UpdateLike(
         nofFollowers
         nofFollowings
         image
+        fcmToken
         createdAt
         updatedAt
         _version
@@ -248,6 +282,22 @@ export const deleteLike = /* GraphQL */ `mutation DeleteLike(
         startedAt
         __typename
       }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
+        nextToken
+        startedAt
+        __typename
+      }
+      fcmToken
+      Notifications {
+        nextToken
+        startedAt
+        __typename
+      }
       createdAt
       updatedAt
       _version
@@ -279,6 +329,7 @@ export const deleteLike = /* GraphQL */ `mutation DeleteLike(
         nofFollowers
         nofFollowings
         image
+        fcmToken
         createdAt
         updatedAt
         _version
@@ -353,6 +404,22 @@ export const createComment = /* GraphQL */ `mutation CreateComment(
         startedAt
         __typename
       }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
+        nextToken
+        startedAt
+        __typename
+      }
+      fcmToken
+      Notifications {
+        nextToken
+        startedAt
+        __typename
+      }
       createdAt
       updatedAt
       _version
@@ -384,6 +451,7 @@ export const createComment = /* GraphQL */ `mutation CreateComment(
         nofFollowers
         nofFollowings
         image
+        fcmToken
         createdAt
         updatedAt
         _version
@@ -457,6 +525,22 @@ export const updateComment = /* GraphQL */ `mutation UpdateComment(
         startedAt
         __typename
       }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
+        nextToken
+        startedAt
+        __typename
+      }
+      fcmToken
+      Notifications {
+        nextToken
+        startedAt
+        __typename
+      }
       createdAt
       updatedAt
       _version
@@ -488,6 +572,7 @@ export const updateComment = /* GraphQL */ `mutation UpdateComment(
         nofFollowers
         nofFollowings
         image
+        fcmToken
         createdAt
         updatedAt
         _version
@@ -561,6 +646,22 @@ export const deleteComment = /* GraphQL */ `mutation DeleteComment(
         startedAt
         __typename
       }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
+        nextToken
+        startedAt
+        __typename
+      }
+      fcmToken
+      Notifications {
+        nextToken
+        startedAt
+        __typename
+      }
       createdAt
       updatedAt
       _version
@@ -592,6 +693,7 @@ export const deleteComment = /* GraphQL */ `mutation DeleteComment(
         nofFollowers
         nofFollowings
         image
+        fcmToken
         createdAt
         updatedAt
         _version
@@ -667,6 +769,22 @@ export const createPost = /* GraphQL */ `mutation CreatePost(
         __typename
       }
       Likes {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
+        nextToken
+        startedAt
+        __typename
+      }
+      fcmToken
+      Notifications {
         nextToken
         startedAt
         __typename
@@ -768,6 +886,22 @@ export const updatePost = /* GraphQL */ `mutation UpdatePost(
         startedAt
         __typename
       }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
+        nextToken
+        startedAt
+        __typename
+      }
+      fcmToken
+      Notifications {
+        nextToken
+        startedAt
+        __typename
+      }
       createdAt
       updatedAt
       _version
@@ -861,6 +995,22 @@ export const deletePost = /* GraphQL */ `mutation DeletePost(
         __typename
       }
       Likes {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
+        nextToken
+        startedAt
+        __typename
+      }
+      fcmToken
+      Notifications {
         nextToken
         startedAt
         __typename
@@ -994,6 +1144,62 @@ export const createUser = /* GraphQL */ `mutation CreateUser(
       startedAt
       __typename
     }
+    Followers {
+      items {
+        id
+        followerID
+        followeeID
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      nextToken
+      startedAt
+      __typename
+    }
+    Followees {
+      items {
+        id
+        followerID
+        followeeID
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      nextToken
+      startedAt
+      __typename
+    }
+    fcmToken
+    Notifications {
+      items {
+        id
+        createdAt
+        type
+        readAt
+        userId
+        actorId
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        notificationPostId
+        notificationCommentId
+        owner
+        __typename
+      }
+      nextToken
+      startedAt
+      __typename
+    }
     createdAt
     updatedAt
     _version
@@ -1074,6 +1280,62 @@ export const updateUser = /* GraphQL */ `mutation UpdateUser(
         _version
         _deleted
         _lastChangedAt
+        owner
+        __typename
+      }
+      nextToken
+      startedAt
+      __typename
+    }
+    Followers {
+      items {
+        id
+        followerID
+        followeeID
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      nextToken
+      startedAt
+      __typename
+    }
+    Followees {
+      items {
+        id
+        followerID
+        followeeID
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      nextToken
+      startedAt
+      __typename
+    }
+    fcmToken
+    Notifications {
+      items {
+        id
+        createdAt
+        type
+        readAt
+        userId
+        actorId
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        notificationPostId
+        notificationCommentId
         owner
         __typename
       }
@@ -1168,6 +1430,62 @@ export const deleteUser = /* GraphQL */ `mutation DeleteUser(
       startedAt
       __typename
     }
+    Followers {
+      items {
+        id
+        followerID
+        followeeID
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      nextToken
+      startedAt
+      __typename
+    }
+    Followees {
+      items {
+        id
+        followerID
+        followeeID
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      nextToken
+      startedAt
+      __typename
+    }
+    fcmToken
+    Notifications {
+      items {
+        id
+        createdAt
+        type
+        readAt
+        userId
+        actorId
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        notificationPostId
+        notificationCommentId
+        owner
+        __typename
+      }
+      nextToken
+      startedAt
+      __typename
+    }
     createdAt
     updatedAt
     _version
@@ -1180,4 +1498,1261 @@ export const deleteUser = /* GraphQL */ `mutation DeleteUser(
 ` as GeneratedMutation<
   APITypes.DeleteUserMutationVariables,
   APITypes.DeleteUserMutation
+>;
+export const createUserFollow = /* GraphQL */ `mutation CreateUserFollow(
+  $input: CreateUserFollowInput!
+  $condition: ModelUserFollowConditionInput
+) {
+  createUserFollow(input: $input, condition: $condition) {
+    id
+    followerID
+    followeeID
+    Follower {
+      id
+      name
+      email
+      bio
+      username
+      website
+      nofPosts
+      nofFollowers
+      nofFollowings
+      image
+      Posts {
+        nextToken
+        startedAt
+        __typename
+      }
+      Comments {
+        nextToken
+        startedAt
+        __typename
+      }
+      Likes {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
+        nextToken
+        startedAt
+        __typename
+      }
+      fcmToken
+      Notifications {
+        nextToken
+        startedAt
+        __typename
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+    Followee {
+      id
+      name
+      email
+      bio
+      username
+      website
+      nofPosts
+      nofFollowers
+      nofFollowings
+      image
+      Posts {
+        nextToken
+        startedAt
+        __typename
+      }
+      Comments {
+        nextToken
+        startedAt
+        __typename
+      }
+      Likes {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
+        nextToken
+        startedAt
+        __typename
+      }
+      fcmToken
+      Notifications {
+        nextToken
+        startedAt
+        __typename
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    owner
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.CreateUserFollowMutationVariables,
+  APITypes.CreateUserFollowMutation
+>;
+export const updateUserFollow = /* GraphQL */ `mutation UpdateUserFollow(
+  $input: UpdateUserFollowInput!
+  $condition: ModelUserFollowConditionInput
+) {
+  updateUserFollow(input: $input, condition: $condition) {
+    id
+    followerID
+    followeeID
+    Follower {
+      id
+      name
+      email
+      bio
+      username
+      website
+      nofPosts
+      nofFollowers
+      nofFollowings
+      image
+      Posts {
+        nextToken
+        startedAt
+        __typename
+      }
+      Comments {
+        nextToken
+        startedAt
+        __typename
+      }
+      Likes {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
+        nextToken
+        startedAt
+        __typename
+      }
+      fcmToken
+      Notifications {
+        nextToken
+        startedAt
+        __typename
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+    Followee {
+      id
+      name
+      email
+      bio
+      username
+      website
+      nofPosts
+      nofFollowers
+      nofFollowings
+      image
+      Posts {
+        nextToken
+        startedAt
+        __typename
+      }
+      Comments {
+        nextToken
+        startedAt
+        __typename
+      }
+      Likes {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
+        nextToken
+        startedAt
+        __typename
+      }
+      fcmToken
+      Notifications {
+        nextToken
+        startedAt
+        __typename
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    owner
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.UpdateUserFollowMutationVariables,
+  APITypes.UpdateUserFollowMutation
+>;
+export const deleteUserFollow = /* GraphQL */ `mutation DeleteUserFollow(
+  $input: DeleteUserFollowInput!
+  $condition: ModelUserFollowConditionInput
+) {
+  deleteUserFollow(input: $input, condition: $condition) {
+    id
+    followerID
+    followeeID
+    Follower {
+      id
+      name
+      email
+      bio
+      username
+      website
+      nofPosts
+      nofFollowers
+      nofFollowings
+      image
+      Posts {
+        nextToken
+        startedAt
+        __typename
+      }
+      Comments {
+        nextToken
+        startedAt
+        __typename
+      }
+      Likes {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
+        nextToken
+        startedAt
+        __typename
+      }
+      fcmToken
+      Notifications {
+        nextToken
+        startedAt
+        __typename
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+    Followee {
+      id
+      name
+      email
+      bio
+      username
+      website
+      nofPosts
+      nofFollowers
+      nofFollowings
+      image
+      Posts {
+        nextToken
+        startedAt
+        __typename
+      }
+      Comments {
+        nextToken
+        startedAt
+        __typename
+      }
+      Likes {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
+        nextToken
+        startedAt
+        __typename
+      }
+      fcmToken
+      Notifications {
+        nextToken
+        startedAt
+        __typename
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    owner
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.DeleteUserFollowMutationVariables,
+  APITypes.DeleteUserFollowMutation
+>;
+export const createUserFeedPost = /* GraphQL */ `mutation CreateUserFeedPost(
+  $input: CreateUserFeedPostInput!
+  $condition: ModelUserFeedPostConditionInput
+) {
+  createUserFeedPost(input: $input, condition: $condition) {
+    id
+    userID
+    postID
+    postCreatedAt
+    postOwnerID
+    Post {
+      id
+      createdAt
+      type
+      description
+      location
+      image
+      images
+      video
+      nofComments
+      nofLikes
+      userID
+      User {
+        id
+        name
+        email
+        bio
+        username
+        website
+        nofPosts
+        nofFollowers
+        nofFollowings
+        image
+        fcmToken
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      Likes {
+        nextToken
+        startedAt
+        __typename
+      }
+      Comments {
+        nextToken
+        startedAt
+        __typename
+      }
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    owner
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.CreateUserFeedPostMutationVariables,
+  APITypes.CreateUserFeedPostMutation
+>;
+export const updateUserFeedPost = /* GraphQL */ `mutation UpdateUserFeedPost(
+  $input: UpdateUserFeedPostInput!
+  $condition: ModelUserFeedPostConditionInput
+) {
+  updateUserFeedPost(input: $input, condition: $condition) {
+    id
+    userID
+    postID
+    postCreatedAt
+    postOwnerID
+    Post {
+      id
+      createdAt
+      type
+      description
+      location
+      image
+      images
+      video
+      nofComments
+      nofLikes
+      userID
+      User {
+        id
+        name
+        email
+        bio
+        username
+        website
+        nofPosts
+        nofFollowers
+        nofFollowings
+        image
+        fcmToken
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      Likes {
+        nextToken
+        startedAt
+        __typename
+      }
+      Comments {
+        nextToken
+        startedAt
+        __typename
+      }
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    owner
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.UpdateUserFeedPostMutationVariables,
+  APITypes.UpdateUserFeedPostMutation
+>;
+export const deleteUserFeedPost = /* GraphQL */ `mutation DeleteUserFeedPost(
+  $input: DeleteUserFeedPostInput!
+  $condition: ModelUserFeedPostConditionInput
+) {
+  deleteUserFeedPost(input: $input, condition: $condition) {
+    id
+    userID
+    postID
+    postCreatedAt
+    postOwnerID
+    Post {
+      id
+      createdAt
+      type
+      description
+      location
+      image
+      images
+      video
+      nofComments
+      nofLikes
+      userID
+      User {
+        id
+        name
+        email
+        bio
+        username
+        website
+        nofPosts
+        nofFollowers
+        nofFollowings
+        image
+        fcmToken
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      Likes {
+        nextToken
+        startedAt
+        __typename
+      }
+      Comments {
+        nextToken
+        startedAt
+        __typename
+      }
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    owner
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.DeleteUserFeedPostMutationVariables,
+  APITypes.DeleteUserFeedPostMutation
+>;
+export const createNotification = /* GraphQL */ `mutation CreateNotification(
+  $input: CreateNotificationInput!
+  $condition: ModelNotificationConditionInput
+) {
+  createNotification(input: $input, condition: $condition) {
+    id
+    createdAt
+    type
+    readAt
+    userId
+    actorId
+    User {
+      id
+      name
+      email
+      bio
+      username
+      website
+      nofPosts
+      nofFollowers
+      nofFollowings
+      image
+      Posts {
+        nextToken
+        startedAt
+        __typename
+      }
+      Comments {
+        nextToken
+        startedAt
+        __typename
+      }
+      Likes {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
+        nextToken
+        startedAt
+        __typename
+      }
+      fcmToken
+      Notifications {
+        nextToken
+        startedAt
+        __typename
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+    Actor {
+      id
+      name
+      email
+      bio
+      username
+      website
+      nofPosts
+      nofFollowers
+      nofFollowings
+      image
+      Posts {
+        nextToken
+        startedAt
+        __typename
+      }
+      Comments {
+        nextToken
+        startedAt
+        __typename
+      }
+      Likes {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
+        nextToken
+        startedAt
+        __typename
+      }
+      fcmToken
+      Notifications {
+        nextToken
+        startedAt
+        __typename
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+    Post {
+      id
+      createdAt
+      type
+      description
+      location
+      image
+      images
+      video
+      nofComments
+      nofLikes
+      userID
+      User {
+        id
+        name
+        email
+        bio
+        username
+        website
+        nofPosts
+        nofFollowers
+        nofFollowings
+        image
+        fcmToken
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      Likes {
+        nextToken
+        startedAt
+        __typename
+      }
+      Comments {
+        nextToken
+        startedAt
+        __typename
+      }
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+    Comment {
+      id
+      comment
+      createdAt
+      userID
+      postID
+      User {
+        id
+        name
+        email
+        bio
+        username
+        website
+        nofPosts
+        nofFollowers
+        nofFollowings
+        image
+        fcmToken
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      Post {
+        id
+        createdAt
+        type
+        description
+        location
+        image
+        images
+        video
+        nofComments
+        nofLikes
+        userID
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    notificationPostId
+    notificationCommentId
+    owner
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.CreateNotificationMutationVariables,
+  APITypes.CreateNotificationMutation
+>;
+export const updateNotification = /* GraphQL */ `mutation UpdateNotification(
+  $input: UpdateNotificationInput!
+  $condition: ModelNotificationConditionInput
+) {
+  updateNotification(input: $input, condition: $condition) {
+    id
+    createdAt
+    type
+    readAt
+    userId
+    actorId
+    User {
+      id
+      name
+      email
+      bio
+      username
+      website
+      nofPosts
+      nofFollowers
+      nofFollowings
+      image
+      Posts {
+        nextToken
+        startedAt
+        __typename
+      }
+      Comments {
+        nextToken
+        startedAt
+        __typename
+      }
+      Likes {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
+        nextToken
+        startedAt
+        __typename
+      }
+      fcmToken
+      Notifications {
+        nextToken
+        startedAt
+        __typename
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+    Actor {
+      id
+      name
+      email
+      bio
+      username
+      website
+      nofPosts
+      nofFollowers
+      nofFollowings
+      image
+      Posts {
+        nextToken
+        startedAt
+        __typename
+      }
+      Comments {
+        nextToken
+        startedAt
+        __typename
+      }
+      Likes {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
+        nextToken
+        startedAt
+        __typename
+      }
+      fcmToken
+      Notifications {
+        nextToken
+        startedAt
+        __typename
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+    Post {
+      id
+      createdAt
+      type
+      description
+      location
+      image
+      images
+      video
+      nofComments
+      nofLikes
+      userID
+      User {
+        id
+        name
+        email
+        bio
+        username
+        website
+        nofPosts
+        nofFollowers
+        nofFollowings
+        image
+        fcmToken
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      Likes {
+        nextToken
+        startedAt
+        __typename
+      }
+      Comments {
+        nextToken
+        startedAt
+        __typename
+      }
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+    Comment {
+      id
+      comment
+      createdAt
+      userID
+      postID
+      User {
+        id
+        name
+        email
+        bio
+        username
+        website
+        nofPosts
+        nofFollowers
+        nofFollowings
+        image
+        fcmToken
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      Post {
+        id
+        createdAt
+        type
+        description
+        location
+        image
+        images
+        video
+        nofComments
+        nofLikes
+        userID
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    notificationPostId
+    notificationCommentId
+    owner
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.UpdateNotificationMutationVariables,
+  APITypes.UpdateNotificationMutation
+>;
+export const deleteNotification = /* GraphQL */ `mutation DeleteNotification(
+  $input: DeleteNotificationInput!
+  $condition: ModelNotificationConditionInput
+) {
+  deleteNotification(input: $input, condition: $condition) {
+    id
+    createdAt
+    type
+    readAt
+    userId
+    actorId
+    User {
+      id
+      name
+      email
+      bio
+      username
+      website
+      nofPosts
+      nofFollowers
+      nofFollowings
+      image
+      Posts {
+        nextToken
+        startedAt
+        __typename
+      }
+      Comments {
+        nextToken
+        startedAt
+        __typename
+      }
+      Likes {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
+        nextToken
+        startedAt
+        __typename
+      }
+      fcmToken
+      Notifications {
+        nextToken
+        startedAt
+        __typename
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+    Actor {
+      id
+      name
+      email
+      bio
+      username
+      website
+      nofPosts
+      nofFollowers
+      nofFollowings
+      image
+      Posts {
+        nextToken
+        startedAt
+        __typename
+      }
+      Comments {
+        nextToken
+        startedAt
+        __typename
+      }
+      Likes {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followers {
+        nextToken
+        startedAt
+        __typename
+      }
+      Followees {
+        nextToken
+        startedAt
+        __typename
+      }
+      fcmToken
+      Notifications {
+        nextToken
+        startedAt
+        __typename
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+    Post {
+      id
+      createdAt
+      type
+      description
+      location
+      image
+      images
+      video
+      nofComments
+      nofLikes
+      userID
+      User {
+        id
+        name
+        email
+        bio
+        username
+        website
+        nofPosts
+        nofFollowers
+        nofFollowings
+        image
+        fcmToken
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      Likes {
+        nextToken
+        startedAt
+        __typename
+      }
+      Comments {
+        nextToken
+        startedAt
+        __typename
+      }
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+    Comment {
+      id
+      comment
+      createdAt
+      userID
+      postID
+      User {
+        id
+        name
+        email
+        bio
+        username
+        website
+        nofPosts
+        nofFollowers
+        nofFollowings
+        image
+        fcmToken
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      Post {
+        id
+        createdAt
+        type
+        description
+        location
+        image
+        images
+        video
+        nofComments
+        nofLikes
+        userID
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        owner
+        __typename
+      }
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      owner
+      __typename
+    }
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    notificationPostId
+    notificationCommentId
+    owner
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.DeleteNotificationMutationVariables,
+  APITypes.DeleteNotificationMutation
 >;

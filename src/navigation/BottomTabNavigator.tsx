@@ -15,8 +15,9 @@ import SearchTabNavigator from './SearchTabNavigator';
 import {Text} from 'react-native';
 import CameraScreen from '../screens/CameraScreen';
 import UploadStackNavigator from './UploadStackNavigator';
+import NotificationsScreen from '../screens/NotificationsScreen';
 
-const Tab = createBottomTabNavigator<SearchTabNavigatorParamList>();
+const Tab = createBottomTabNavigator<BottomTabNavigatorParamList>();
 
 const BottomTabNavigator = () => {
   return (
@@ -26,7 +27,7 @@ const BottomTabNavigator = () => {
         tabBarActiveTintColor: colors.black,
       }}>
       <Tab.Screen
-        name="Home Stack"
+        name="HomeStack"
         component={HomeStackNavigator}
         options={{
           headerShown: false,
@@ -60,7 +61,7 @@ const BottomTabNavigator = () => {
       />
       <Tab.Screen
         name="Notifications"
-        component={ProfileScreen}
+        component={NotificationsScreen}
         options={{
           tabBarIcon: ({color, size}) => (
             <MaterialCommunityIcons
