@@ -51,9 +51,17 @@
       "function": {
         "instalearningPostConfirmation": {
           "deploymentBucketName": "amplify-instalearning-staging-114844-deployment",
-          "s3Key": "amplify-builds/instalearningPostConfirmation-58776473586d374a4732-build.zip"
+          "s3Key": "amplify-builds/instalearningPostConfirmation-7a656b494a4d6a616f6f-build.zip"
         },
-        "instalearning": {}
+        "instalearning": {},
+        "FeedGenerator": {
+          "deploymentBucketName": "amplify-instalearning-staging-114844-deployment",
+          "s3Key": "amplify-builds/FeedGenerator-3162795977526d747152-build.zip"
+        },
+        "UserFollowTrigger": {
+          "deploymentBucketName": "amplify-instalearning-staging-114844-deployment",
+          "s3Key": "amplify-builds/UserFollowTrigger-51377a416752646a6b72-build.zip"
+        }
       },
       "api": {
         "instalearning": {}
