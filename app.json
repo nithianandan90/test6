@@ -7,12 +7,12 @@
         "projectId": "e501b755-bcba-4ea9-aa9e-273ae068cb04"
       }
     },
-    "version": "1.0.9",
+    "version": "1.0.10",
     "android": {
-      "versionCode": 29
+      "versionCode": 30
     },
     "ios": {
-      "buildNumber": "29"
+      "buildNumber": "30"
     }
   }
 }
