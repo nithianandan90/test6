@@ -5,12 +5,14 @@ import {
   Text,
   View,
 } from 'react-native';
-import React from 'react';
-import {userNotifications} from './queries';
-import {useQuery} from '@apollo/client';
+import React, {useEffect} from 'react';
+import {updateNotification, userNotifications} from './queries';
+import {useMutation, useQuery} from '@apollo/client';
 import {useAuthContext} from '../../contexts/AuthContext';
 import {
   ModelSortDirection,
+  UpdateNotificationMutation,
+  UpdateNotificationMutationVariables,
   UserNotificationsQuery,
   UserNotificationsQueryVariables,
 } from '../../API';
@@ -27,6 +29,39 @@ const NotificationsScreen = () => {
     variables: {userId, sortDirection: ModelSortDirection.DESC},
   });
 
+  const [doUpdateNotification] = useMutation<
+    UpdateNotificationMutation,
+    UpdateNotificationMutationVariables
+  >(updateNotification);
+
+  const notifications = (data?.userNotifications?.items || []).filter(
+    item => !item?._deleted,
+  );
+
+  useEffect(() => {
+    const readNotification = async () => {
+      const unreadNotifications = notifications.filter(n => !n?.readAt);
+      const first = unreadNotifications[0];
+
+      await Promise.all(
+        unreadNotifications.map(
+          notification =>
+            notification &&
+            doUpdateNotification({
+              variables: {
+                input: {
+                  id: notification.id,
+                  _version: notification._version,
+                  readAt: new Date().getTime(),
+                },
+              },
+            }),
+        ),
+      );
+    };
+    readNotification();
+  }, [notifications]);
+
   if (loading) {
     return <ActivityIndicator />;
   }
@@ -41,10 +76,6 @@ const NotificationsScreen = () => {
   }
 
   console.log(data?.userNotifications?.items);
-
-  const notifications = (data?.userNotifications?.items || []).filter(
-    item => !item?._deleted,
-  );
 
   return (
     <View style={{flex: 1, backgroundColor: 'white'}}>

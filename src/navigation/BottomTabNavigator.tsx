@@ -16,10 +16,13 @@ import {Text} from 'react-native';
 import CameraScreen from '../screens/CameraScreen';
 import UploadStackNavigator from './UploadStackNavigator';
 import NotificationsScreen from '../screens/NotificationsScreen';
+import {useNotificationContext} from '../contexts/NotificationContext/NotificationContext';
 
 const Tab = createBottomTabNavigator<BottomTabNavigatorParamList>();
 
 const BottomTabNavigator = () => {
+  const {newNotifications} = useNotificationContext();
+
   return (
     <Tab.Navigator
       screenOptions={{
@@ -70,6 +73,7 @@ const BottomTabNavigator = () => {
               color={color}
             />
           ),
+          tabBarBadge: newNotifications || undefined,
         }}
       />
 

@@ -19,31 +19,7 @@ export const userNotifications = gql`
     ) {
       items {
         id
-        createdAt
-        type
-        userId
-        actorId
         readAt
-        Actor {
-          id
-          name
-          username
-          image
-          _version
-          _deleted
-          _lastChangedAt
-        }
-        Post {
-          id
-          image
-          images
-          video
-        }
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-        notificationPostId
       }
       nextToken
       startedAt
@@ -51,17 +27,17 @@ export const userNotifications = gql`
   }
 `;
 
-export const updateNotification = gql`
-  mutation UpdateNotification(
-    $input: UpdateNotificationInput!
-    $condition: ModelNotificationConditionInput
+export const onCreateNotification = gql`
+  subscription OnCreateNotification(
+    $filter: ModelSubscriptionNotificationFilterInput
   ) {
-    updateNotification(input: $input, condition: $condition) {
+    onCreateNotification(filter: $filter) {
       id
       createdAt
       type
-      readAt
       userId
+      actorId
+      readAt
       updatedAt
       _version
       _deleted

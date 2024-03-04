@@ -1315,7 +1315,6 @@ export const getUser = /* GraphQL */ `query GetUser($id: ID!) {
         _lastChangedAt
         notificationPostId
         notificationCommentId
-        owner
         __typename
       }
       nextToken
@@ -2500,7 +2499,6 @@ export const getNotification = /* GraphQL */ `query GetNotification($id: ID!) {
     _lastChangedAt
     notificationPostId
     notificationCommentId
-    owner
     __typename
   }
 }
@@ -2599,7 +2597,6 @@ export const listNotifications = /* GraphQL */ `query ListNotifications(
       _lastChangedAt
       notificationPostId
       notificationCommentId
-      owner
       __typename
     }
     nextToken
@@ -2708,7 +2705,6 @@ export const syncNotifications = /* GraphQL */ `query SyncNotifications(
       _lastChangedAt
       notificationPostId
       notificationCommentId
-      owner
       __typename
     }
     nextToken
@@ -2821,7 +2817,6 @@ export const userNotifications = /* GraphQL */ `query UserNotifications(
       _lastChangedAt
       notificationPostId
       notificationCommentId
-      owner
       __typename
     }
     nextToken

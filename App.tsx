@@ -20,6 +20,7 @@ import AuthContextProvider from './src/contexts/AuthContext';
 import Client from './src/apollo/Client';
 import {MenuProvider} from 'react-native-popup-menu';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
+import NotificationContextProvider from './src/contexts/NotificationContext/NotificationContext';
 
 Amplify.configure(config);
 
@@ -29,7 +30,9 @@ const App = () => {
       <MenuProvider>
         <AuthContextProvider>
           <Client>
-            <Navigation />
+            <NotificationContextProvider>
+              <Navigation />
+            </NotificationContextProvider>
           </Client>
         </AuthContextProvider>
       </MenuProvider>

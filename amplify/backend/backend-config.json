@@ -90,6 +90,21 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
+    "NotificationTrigger": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput"
+          ],
+          "category": "api",
+          "resourceName": "instalearning"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "UserFollowTrigger": {
       "build": true,
       "dependsOn": [
@@ -135,6 +150,22 @@
         {
           "category": "function",
           "resourceName": "FeedGenerator"
+        }
+      ]
+    },
+    "AMPLIFY_function_NotificationTrigger_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "NotificationTrigger"
+        }
+      ]
+    },
+    "AMPLIFY_function_NotificationTrigger_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "NotificationTrigger"
         }
       ]
     },

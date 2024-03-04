@@ -39,7 +39,7 @@ const HomeScreen = () => {
 
   console.log(userId);
 
-  console.log('data', data);
+  // console.log('data', data);
 
   const viewabilityConfig: ViewabilityConfig = {
     itemVisiblePercentThreshold: 51,
@@ -94,7 +94,7 @@ const HomeScreen = () => {
 
   // console.log('data', data?.postByDate?.items);
 
-  console.log('data', JSON.stringify(data, null, 2));
+  // console.log('data', JSON.stringify(data, null, 2));
 
   const posts = (data?.userFeed?.items || [])
     .filter(item => !item?._deleted && !item?.Post?._deleted)

@@ -1193,7 +1193,6 @@ export const createUser = /* GraphQL */ `mutation CreateUser(
         _lastChangedAt
         notificationPostId
         notificationCommentId
-        owner
         __typename
       }
       nextToken
@@ -1336,7 +1335,6 @@ export const updateUser = /* GraphQL */ `mutation UpdateUser(
         _lastChangedAt
         notificationPostId
         notificationCommentId
-        owner
         __typename
       }
       nextToken
@@ -1479,7 +1477,6 @@ export const deleteUser = /* GraphQL */ `mutation DeleteUser(
         _lastChangedAt
         notificationPostId
         notificationCommentId
-        owner
         __typename
       }
       nextToken
@@ -2296,7 +2293,6 @@ export const createNotification = /* GraphQL */ `mutation CreateNotification(
     _lastChangedAt
     notificationPostId
     notificationCommentId
-    owner
     __typename
   }
 }
@@ -2522,7 +2518,6 @@ export const updateNotification = /* GraphQL */ `mutation UpdateNotification(
     _lastChangedAt
     notificationPostId
     notificationCommentId
-    owner
     __typename
   }
 }
@@ -2748,7 +2743,6 @@ export const deleteNotification = /* GraphQL */ `mutation DeleteNotification(
     _lastChangedAt
     notificationPostId
     notificationCommentId
-    owner
     __typename
   }
 }
